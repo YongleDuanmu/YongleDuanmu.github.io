@@ -61,8 +61,6 @@
       gap: 46px;
     }
 
-    /* Sidebar */
-
     .sidebar {
       position: sticky;
       top: 32px;
@@ -162,8 +160,6 @@
       color: var(--accent);
       text-decoration: none;
     }
-
-    /* Main */
 
     .main {
       min-width: 0;
@@ -265,8 +261,6 @@
       color: var(--accent-dark);
       font-weight: 650;
     }
-
-    /* Research */
 
     .pub-card {
       border-left: 4px solid #d7e5f5;
@@ -386,8 +380,6 @@
       color: #999;
     }
 
-    /* Common item */
-
     .item-title {
       font-size: 17px;
       font-weight: 700;
@@ -423,8 +415,6 @@
       border: 1px solid #e3e8ec;
     }
 
-    /* Internship */
-
     .experience-wide {
       display: block;
     }
@@ -453,8 +443,6 @@
     .experience-card-xiaomi {
       border-left: 4px solid #f2d8c8;
     }
-
-    /* Projects */
 
     .project-card {
       display: grid;
@@ -498,24 +486,45 @@
       border-left: 4px solid #ead9f6;
     }
 
-    /* Education */
-
-    .edu-card {
-      display: grid;
-      grid-template-columns: 78px 1fr;
-      gap: 18px;
-      align-items: center;
-      border-left: 4px solid #eee;
+    .education-wide {
+      display: block;
+      border-left: 4px solid #e5e5e5;
     }
 
-    .org-logo {
-      width: 70px;
-      height: 70px;
+    .education-logo-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .education-logo-wide {
+      width: 280px;
+      max-width: 100%;
+      height: 76px;
       object-fit: contain;
-      border-radius: 14px;
       border: 1px solid var(--border);
-      padding: 8px;
+      border-radius: 14px;
+      padding: 10px 14px;
       background: #fff;
+    }
+
+    .education-card-dut {
+      border-left-color: #d7e5f5;
+    }
+
+    .education-card-hpu {
+      border-left-color: #ead9f6;
+    }
+
+    .gpa-line {
+      margin-top: 8px;
+      font-size: 14.5px;
+      color: #333;
+    }
+
+    .gpa-highlight {
+      color: var(--red);
+      font-weight: 700;
     }
 
     .two-col {
@@ -609,11 +618,6 @@
         height: auto;
       }
 
-      .edu-card {
-        grid-template-columns: 1fr;
-        align-items: start;
-      }
-
       .two-col {
         grid-template-columns: 1fr;
       }
@@ -699,6 +703,7 @@
 
       <section id="news">
         <h2>News</h2>
+
         <div class="card">
           <ul class="news-list">
             <li><span class="year">2026.09</span>: I will join the <span class="emph-red">Xiaomi OpenVela team</span> as an embedded software development intern.</li>
@@ -919,19 +924,27 @@
       <section id="education">
         <h2>Education</h2>
 
-        <div class="card edu-card">
-          <img class="org-logo" src="images/dut.png" alt="Dalian University of Technology" />
+        <div class="card education-wide education-card-dut">
+          <div class="education-logo-row">
+            <img class="education-logo-wide" src="images/dut.png" alt="Dalian University of Technology" />
+          </div>
 
           <div>
             <div class="item-title">Dalian University of Technology</div>
             <div class="meta">
               M.S. in Control Science and Engineering &nbsp; | &nbsp; Sep. 2025 - Jun. 2028
             </div>
+            <div class="gpa-line">
+              GPA: <span class="gpa-highlight">4.37/5.00</span> &nbsp; | &nbsp;
+              Ranking: <span class="gpa-highlight">Top 1%</span>
+            </div>
           </div>
         </div>
 
-        <div class="card edu-card">
-          <img class="org-logo" src="images/hpu.png" alt="Henan Polytechnic University" />
+        <div class="card education-wide education-card-hpu">
+          <div class="education-logo-row">
+            <img class="education-logo-wide" src="images/hpu.png" alt="Henan Polytechnic University" />
+          </div>
 
           <div>
             <div class="item-title">Henan Polytechnic University</div>
@@ -939,9 +952,11 @@
               B.Eng. in Automation, School of Electrical Engineering and Automation &nbsp; | &nbsp;
               Sep. 2021 - Jun. 2025
             </div>
-            <p class="compact-text">
-              Ranked <span class="emph-red">first in the major for four consecutive years</span>.
-            </p>
+            <div class="gpa-line">
+              GPA: <span class="gpa-highlight">4.21/5.00</span> &nbsp; | &nbsp;
+              Ranking: <span class="gpa-highlight">Rank 1</span> &nbsp; | &nbsp;
+              Ranked <span class="gpa-highlight">first in the major for four consecutive years</span>
+            </div>
           </div>
         </div>
       </section>
