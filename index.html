@@ -77,15 +77,28 @@
       font-size: 15px;
     }
 
+    .logo-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .logo-strip img {
+      height: 38px;
+      max-width: 150px;
+      object-fit: contain;
+      filter: grayscale(10%);
+    }
+
     .news ul,
     .awards ul,
     .skills ul {
       padding-left: 22px;
     }
 
-    .publication,
-    .experience,
-    .education {
+    .publication {
       margin-bottom: 20px;
     }
 
@@ -123,6 +136,25 @@
       color: #666;
       font-size: 14px;
       margin-bottom: 6px;
+    }
+
+    .experience-card,
+    .education-card {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+
+    .org-logo {
+      width: 78px;
+      height: 78px;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid #e5e5e5;
+      padding: 6px;
+      background-color: #fff;
     }
 
     .project-card {
@@ -177,6 +209,16 @@
         height: 215px;
       }
 
+      .experience-card,
+      .education-card {
+        grid-template-columns: 1fr;
+      }
+
+      .org-logo {
+        width: 70px;
+        height: 70px;
+      }
+
       .project-card {
         grid-template-columns: 1fr;
       }
@@ -196,7 +238,7 @@
 <body>
 
   <div class="header">
-    <img class="profile-img" src="images/profile.jpg" alt="Yongle Duanmu">
+    <img class="profile-img" src="images/profile.jgp" alt="Yongle Duanmu">
 
     <div class="intro">
       <h1>Yongle Duanmu</h1>
@@ -223,6 +265,13 @@
         &nbsp;/&nbsp;
         CV: Coming soon
       </div>
+
+      <div class="logo-strip">
+        <img src="images/dut.png" alt="Dalian University of Technology">
+        <img src="images/hpu.png" alt="Henan Polytechnic University">
+        <img src="images/dicp.png" alt="Dalian Institute of Chemical Physics, CAS">
+        <img src="images/xiaomi.png" alt="Xiaomi">
+      </div>
     </div>
   </div>
 
@@ -240,7 +289,7 @@
   <div class="news">
     <ul>
       <li><strong>2026.09</strong>: I will join the Xiaomi OpenVela team as an embedded software development intern.</li>
-      <li><strong>2026.05</strong>: I started an embedded software development internship on battery thermal runaway monitoring.</li>
+      <li><strong>2026.05</strong>: I started an embedded software development internship at Dalian Institute of Chemical Physics, Chinese Academy of Sciences.</li>
       <li><strong>2026</strong>: One first-author paper was submitted to <em>Biomedical Signal Processing and Control</em>.</li>
       <li><strong>2026</strong>: One co-first-author paper was submitted to <em>Sensors and Actuators B: Chemical</em>.</li>
       <li><strong>2026</strong>: Our paper received the Best Paper Award at ETAI 2026.</li>
@@ -291,29 +340,35 @@
 
   <h2>Internship & Research Experience</h2>
 
-  <div class="experience">
-    <h3>Embedded Software Development Intern, Battery Thermal Runaway Project</h3>
-    <div class="meta">Academician Zhongwei Chen's Team &nbsp; | &nbsp; May 2026 - Aug. 2026</div>
-    <p>
-      Worked on an implantable multi-source data acquisition platform for early warning of
-      thermal runaway in new-energy vehicle batteries. The system monitored internal strain,
-      temperature, CO/CO₂/H₂/smoke, PM2.5, and other parameters in real time. I independently
-      designed a high-integration embedded PCB, completed schematic and layout design, and
-      verified signal integrity using oscilloscopes and multimeters. On the software side, I
-      developed a multi-task real-time acquisition system based on STM32F4 and FreeRTOS,
-      including drivers for SPI, IIC, CAN, USART, SD card storage, and multiple sensors.
-      To address the limited space inside batteries, I designed a tab-signal multiplexing scheme
-      that encoded and modulated sensing data onto battery tabs and recovered the information
-      through an external decoding circuit.
-    </p>
+  <div class="experience-card">
+    <img class="org-logo" src="images/dicp.png" alt="DICP">
+    <div>
+      <h3>Embedded Software Development Intern, Dalian Institute of Chemical Physics, Chinese Academy of Sciences</h3>
+      <div class="meta">Battery Thermal Runaway Project, Academician Zhongwei Chen's Team &nbsp; | &nbsp; May 2026 - Aug. 2026</div>
+      <p>
+        Worked on an implantable multi-source data acquisition platform for early warning of
+        thermal runaway in new-energy vehicle batteries. The system monitored internal strain,
+        temperature, CO/CO₂/H₂/smoke, PM2.5, and other parameters in real time. I independently
+        designed a high-integration embedded PCB, completed schematic and layout design, and
+        verified signal integrity using oscilloscopes and multimeters. On the software side, I
+        developed a multi-task real-time acquisition system based on STM32F4 and FreeRTOS,
+        including drivers for SPI, IIC, CAN, USART, SD card storage, and multiple sensors.
+        To address the limited space inside batteries, I designed a tab-signal multiplexing scheme
+        that encoded and modulated sensing data onto battery tabs and recovered the information
+        through an external decoding circuit.
+      </p>
+    </div>
   </div>
 
-  <div class="experience">
-    <h3>Embedded Software Development Intern, Xiaomi OpenVela Team</h3>
-    <div class="meta">Xiaomi &nbsp; | &nbsp; Sep. 2026 - Aug. 2027</div>
-    <p>
-      Upcoming internship. Details will be updated later.
-    </p>
+  <div class="experience-card">
+    <img class="org-logo" src="images/xiaomi.png" alt="Xiaomi">
+    <div>
+      <h3>Embedded Software Development Intern, Xiaomi OpenVela Team</h3>
+      <div class="meta">Xiaomi &nbsp; | &nbsp; Sep. 2026 - Aug. 2027</div>
+      <p>
+        Upcoming internship. Details will be updated later.
+      </p>
+    </div>
   </div>
 
   <h2>Selected Projects</h2>
@@ -336,7 +391,7 @@
   </div>
 
   <div class="project-card">
-    <img class="project-img" src="images/pic2.jpg" alt="Intelligent Medication Intervention System">
+    <img class="project-img" src="images/pic2.png" alt="Intelligent Medication Intervention System">
     <div>
       <div class="project-title">Intelligent Medication Intervention System Based on Multimodal AI and Edge Computing</div>
       <div class="meta">
@@ -370,18 +425,24 @@
 
   <h2>Education</h2>
 
-  <div class="education">
-    <h3>Dalian University of Technology</h3>
-    <div class="meta">M.S. in Control Science and Engineering &nbsp; | &nbsp; Sep. 2025 - Jun. 2028</div>
+  <div class="education-card">
+    <img class="org-logo" src="images/dut.png" alt="Dalian University of Technology">
+    <div>
+      <h3>Dalian University of Technology</h3>
+      <div class="meta">M.S. in Control Science and Engineering &nbsp; | &nbsp; Sep. 2025 - Jun. 2028</div>
+    </div>
   </div>
 
-  <div class="education">
-    <h3>Henan Polytechnic University</h3>
-    <div class="meta">
-      B.Eng. in Automation, School of Electrical Engineering and Automation &nbsp; | &nbsp;
-      Sep. 2021 - Jun. 2025
+  <div class="education-card">
+    <img class="org-logo" src="images/hpu.png" alt="Henan Polytechnic University">
+    <div>
+      <h3>Henan Polytechnic University</h3>
+      <div class="meta">
+        B.Eng. in Automation, School of Electrical Engineering and Automation &nbsp; | &nbsp;
+        Sep. 2021 - Jun. 2025
+      </div>
+      <p>Ranked first in the major for four consecutive years.</p>
     </div>
-    <p>Ranked first in the major for four consecutive years.</p>
   </div>
 
   <h2>Competition Awards</h2>
