@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yongle Duanmu</title>
+
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
-      max-width: 1050px;
+      max-width: 1080px;
       margin: 0 auto;
       padding: 40px 24px;
       line-height: 1.65;
@@ -26,18 +27,18 @@
 
     .header {
       display: flex;
-      gap: 32px;
+      gap: 34px;
       align-items: flex-start;
       margin-bottom: 35px;
     }
 
     .profile-img {
-      width: 180px;
-      height: 220px;
+      width: 190px;
+      height: 235px;
       object-fit: cover;
-      border-radius: 6px;
-      background-color: #eee;
+      border-radius: 8px;
       border: 1px solid #ddd;
+      background-color: #f2f2f2;
     }
 
     .intro {
@@ -45,23 +46,24 @@
     }
 
     h1 {
-      font-size: 34px;
-      margin: 0 0 8px 0;
+      font-size: 36px;
+      margin: 0 0 6px 0;
       font-weight: 500;
     }
 
     h2 {
       font-size: 23px;
-      margin-top: 36px;
-      margin-bottom: 12px;
+      margin-top: 38px;
+      margin-bottom: 14px;
       border-bottom: 1px solid #ddd;
       padding-bottom: 5px;
       font-weight: 500;
     }
 
     h3 {
-      margin-bottom: 4px;
+      margin: 0 0 4px 0;
       font-size: 18px;
+      font-weight: 600;
     }
 
     .subtitle {
@@ -83,13 +85,13 @@
 
     .publication,
     .experience,
-    .project,
     .education {
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .pub-title {
       font-weight: bold;
+      font-size: 16px;
     }
 
     .author {
@@ -104,6 +106,12 @@
       border-radius: 4px;
       background-color: #f0f0f0;
       color: #555;
+      vertical-align: middle;
+    }
+
+    .tag-red {
+      background-color: #f7e8e8;
+      color: #9b1c1c;
     }
 
     .highlight {
@@ -114,12 +122,36 @@
     .meta {
       color: #666;
       font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 22px;
+      margin-bottom: 28px;
+      align-items: start;
+    }
+
+    .project-img {
+      width: 260px;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background-color: #f3f3f3;
+    }
+
+    .project-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
     }
 
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      gap: 20px;
     }
 
     footer {
@@ -131,18 +163,31 @@
       text-align: center;
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 780px) {
+      body {
+        padding: 28px 18px;
+      }
+
       .header {
         flex-direction: column;
       }
 
-      .two-col {
+      .profile-img {
+        width: 170px;
+        height: 215px;
+      }
+
+      .project-card {
         grid-template-columns: 1fr;
       }
 
-      .profile-img {
-        width: 160px;
-        height: 200px;
+      .project-img {
+        width: 100%;
+        height: auto;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -156,11 +201,12 @@
     <div class="intro">
       <h1>Yongle Duanmu</h1>
       <div class="subtitle">端木永乐</div>
+
       <p>
-        I am currently a master's student in Control Science and Engineering at
-        <strong>Dalian University of Technology</strong>. Before that, I received my B.Eng.
-        degree in Automation from <strong>Henan Polytechnic University</strong>, where I ranked
-        first in my major for four consecutive years.
+        I am currently a master's student in <strong>Control Science and Engineering</strong>
+        at <strong>Dalian University of Technology</strong>. Before that, I received my
+        B.Eng. degree in Automation from <strong>Henan Polytechnic University</strong>,
+        where I ranked first in my major for four consecutive years.
       </p>
 
       <p>
@@ -171,7 +217,8 @@
       </p>
 
       <div class="contact">
-        Email: <a href="mailto:HPU_DMYL@163.com">HPU_DMYL@163.com</a> &nbsp;/&nbsp;
+        Email: <a href="mailto:HPU_DMYL@163.com">HPU_DMYL@163.com</a>
+        &nbsp;/&nbsp;
         GitHub: <a href="https://github.com/YongleDuanmu" target="_blank">YongleDuanmu</a>
         &nbsp;/&nbsp;
         CV: Coming soon
@@ -205,7 +252,7 @@
   <div class="publication">
     <div class="pub-title">
       Emotion-Aware Sign Language Recognition via Cross-Modal Fusion of ECG Signals and Skeletal Data
-      <span class="tag">Best Paper Award</span>
+      <span class="tag tag-red">Best Paper Award</span>
     </div>
     <div class="author">
       <span class="highlight">Yongle Duanmu</span>, et al.
@@ -269,38 +316,56 @@
     </p>
   </div>
 
-  <h2>Projects</h2>
+  <h2>Selected Projects</h2>
 
-  <div class="project">
-    <h3>Bidirectional Intelligent Bionic Sign Language Translator</h3>
-    <div class="meta">National First Prize, Embedded Chip and System Design Competition, 2024</div>
-    <p>
-      Designed a multimodal sign language translation system integrating embedded sensing,
-      gesture recognition, and intelligent interaction. I served as the team leader and was
-      responsible for system design, algorithm implementation, embedded development, and
-      project integration.
-    </p>
+  <div class="project-card">
+    <img class="project-img" src="images/pic1.jpg" alt="Bidirectional Intelligent Bionic Sign Language Translator">
+    <div>
+      <div class="project-title">Bidirectional Intelligent Bionic Sign Language Translator</div>
+      <div class="meta">
+        National First Prize, National Undergraduate Embedded Chip and System Design Competition, 2024 |
+        Team Leader
+      </div>
+      <p>
+        Designed a multimodal sign language translation system integrating embedded sensing,
+        gesture recognition, and intelligent interaction. I served as the team leader and was
+        responsible for system design, algorithm implementation, embedded development, and
+        project integration.
+      </p>
+    </div>
   </div>
 
-  <div class="project">
-    <h3>Intelligent Medication Intervention System Based on Multimodal AI and Edge Computing</h3>
-    <div class="meta">National First Prize, Chinese Collegiate Computing Competition, 2024</div>
-    <p>
-      Built an intelligent medication intervention system for elderly users and chronic disease
-      patients. The system integrates K230 edge vision recognition, i.MX6ULL edge interaction
-      gateway, PC-based local medical large language model, voice interaction, health monitoring,
-      medication behavior detection, and 3D-printed mechanical structure.
-    </p>
+  <div class="project-card">
+    <img class="project-img" src="images/pic2.jpg" alt="Intelligent Medication Intervention System">
+    <div>
+      <div class="project-title">Intelligent Medication Intervention System Based on Multimodal AI and Edge Computing</div>
+      <div class="meta">
+        National First Prize, Chinese Collegiate Computing Competition, 2024 |
+        Team Leader
+      </div>
+      <p>
+        Built an intelligent medication intervention system for elderly users and chronic disease
+        patients. The system integrates K230 edge vision recognition, i.MX6ULL edge interaction
+        gateway, PC-based local medical large language model, voice interaction, health monitoring,
+        medication behavior detection, and 3D-printed mechanical structure.
+      </p>
+    </div>
   </div>
 
-  <div class="project">
-    <h3>Dynamic Optimization of Insurance Enrollment under Extreme Weather</h3>
-    <div class="meta">Meritorious Winner, Mathematical Contest in Modeling, 2024</div>
-    <p>
-      Developed a mathematical modeling framework for analyzing and optimizing insurance
-      enrollment strategies under extreme weather conditions. I served as the team leader and
-      contributed to model construction, data analysis, and paper writing.
-    </p>
+  <div class="project-card">
+    <img class="project-img" src="images/meisai.jpg" alt="MCM Overview">
+    <div>
+      <div class="project-title">Dynamic Optimization of Insurance Enrollment under Extreme Weather</div>
+      <div class="meta">
+        Meritorious Winner, Mathematical Contest in Modeling, 2024 |
+        Team Leader
+      </div>
+      <p>
+        Developed a mathematical modeling framework for analyzing and optimizing insurance
+        enrollment strategies under extreme weather conditions. I served as the team leader and
+        contributed to model construction, data analysis, and paper writing.
+      </p>
+    </div>
   </div>
 
   <h2>Education</h2>
@@ -312,7 +377,10 @@
 
   <div class="education">
     <h3>Henan Polytechnic University</h3>
-    <div class="meta">B.Eng. in Automation, School of Electrical Engineering and Automation &nbsp; | &nbsp; Sep. 2021 - Jun. 2025</div>
+    <div class="meta">
+      B.Eng. in Automation, School of Electrical Engineering and Automation &nbsp; | &nbsp;
+      Sep. 2021 - Jun. 2025
+    </div>
     <p>Ranked first in the major for four consecutive years.</p>
   </div>
 
@@ -343,6 +411,7 @@
           <li>STM32, FreeRTOS, SPI, IIC, CAN, USART</li>
           <li>Sensor drivers, real-time acquisition, SD card storage</li>
           <li>PCB schematic design and layout</li>
+          <li>Oscilloscope, multimeter, and hardware debugging</li>
         </ul>
       </div>
 
@@ -352,6 +421,7 @@
           <li>ECG-based emotion recognition</li>
           <li>Multimodal learning and domain adaptation</li>
           <li>Edge AI deployment and intelligent healthcare systems</li>
+          <li>Python, C/C++, deep learning model development</li>
         </ul>
       </div>
     </div>
