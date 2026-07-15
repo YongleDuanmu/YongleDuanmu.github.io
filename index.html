@@ -15,7 +15,15 @@
       --soft-bg: #f8f9fb;
       --accent: #2b5f9e;
       --accent-dark: #174a82;
+      --accent-soft: #eef4fb;
       --red: #9b1c1c;
+      --red-soft: #fff0f0;
+      --green: #2e7d32;
+      --green-soft: #eef8ef;
+      --orange: #b45f06;
+      --orange-soft: #fff6e8;
+      --purple: #5b3f91;
+      --purple-soft: #f3effc;
     }
 
     * {
@@ -81,9 +89,10 @@
 
     .name {
       font-size: 30px;
-      font-weight: 600;
+      font-weight: 650;
       line-height: 1.15;
       margin-bottom: 4px;
+      letter-spacing: -0.3px;
     }
 
     .cn-name {
@@ -154,7 +163,7 @@
       text-decoration: none;
     }
 
-    /* Main content */
+    /* Main */
 
     .main {
       min-width: 0;
@@ -168,7 +177,7 @@
 
     .hero h1 {
       font-size: 34px;
-      font-weight: 600;
+      font-weight: 650;
       margin: 0 0 12px;
       letter-spacing: -0.3px;
     }
@@ -177,6 +186,10 @@
       font-size: 16px;
       color: #333;
       margin: 0 0 12px;
+    }
+
+    .hero strong {
+      color: #111;
     }
 
     .research-tags {
@@ -189,7 +202,7 @@
     .research-tags span {
       padding: 5px 10px;
       border-radius: 999px;
-      background: #eef4fb;
+      background: var(--accent-soft);
       color: #245589;
       font-size: 13px;
       border: 1px solid #d8e6f5;
@@ -201,11 +214,23 @@
 
     section h2 {
       font-size: 23px;
-      font-weight: 600;
+      font-weight: 650;
       margin: 0 0 18px;
       padding-bottom: 8px;
       border-bottom: 1px solid var(--border);
       letter-spacing: -0.2px;
+      position: relative;
+    }
+
+    section h2::before {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 3px;
+      margin-right: 10px;
+      vertical-align: -3px;
     }
 
     .card {
@@ -227,19 +252,37 @@
     }
 
     .year {
-      font-weight: 600;
+      font-weight: 650;
       color: var(--accent-dark);
     }
 
+    .emph-red {
+      color: var(--red);
+      font-weight: 650;
+    }
+
+    .emph-blue {
+      color: var(--accent-dark);
+      font-weight: 650;
+    }
+
+    /* Research */
+
     .pub-card {
       border-left: 4px solid #d7e5f5;
+      transition: border-color 0.15s ease;
+    }
+
+    .pub-card:hover {
+      border-left-color: var(--accent);
     }
 
     .pub-title {
-      font-weight: 650;
-      font-size: 16.5px;
+      font-weight: 700;
+      font-size: 16.8px;
       line-height: 1.45;
       margin-bottom: 5px;
+      color: #111;
     }
 
     .authors {
@@ -250,13 +293,18 @@
 
     .me {
       color: var(--red);
-      font-weight: 650;
+      font-weight: 700;
     }
 
     .venue {
       color: var(--muted);
       font-size: 14.5px;
       margin-bottom: 8px;
+    }
+
+    .venue-name {
+      color: var(--accent-dark);
+      font-weight: 650;
     }
 
     .badges {
@@ -269,31 +317,83 @@
     .badge {
       display: inline-flex;
       align-items: center;
-      padding: 3px 8px;
+      padding: 3px 9px;
       border-radius: 999px;
       font-size: 12px;
       background: #f1f2f4;
       color: #555;
       border: 1px solid #e4e4e4;
+      white-space: nowrap;
     }
 
     .badge-red {
-      background: #fff0f0;
-      color: #9b1c1c;
+      background: var(--red-soft);
+      color: var(--red);
       border-color: #f0caca;
     }
 
     .badge-blue {
-      background: #eef4fb;
+      background: var(--accent-soft);
       color: #245589;
       border-color: #d8e6f5;
     }
 
+    .badge-green {
+      background: var(--green-soft);
+      color: var(--green);
+      border-color: #cde8cf;
+    }
+
+    .badge-orange {
+      background: var(--orange-soft);
+      color: var(--orange);
+      border-color: #f0d8aa;
+    }
+
+    .badge-purple {
+      background: var(--purple-soft);
+      color: var(--purple);
+      border-color: #ddd2f4;
+    }
+
+    .mini-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .mini-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 9px;
+      border-radius: 7px;
+      font-size: 12.5px;
+      border: 1px solid #d6e3f2;
+      background: #f7fbff;
+      color: var(--accent-dark);
+    }
+
+    .mini-link.disabled {
+      color: #999;
+      border-color: #e5e5e5;
+      background: #fafafa;
+      cursor: default;
+    }
+
+    .mini-link.disabled:hover {
+      text-decoration: none;
+      color: #999;
+    }
+
+    /* Common item */
+
     .item-title {
       font-size: 17px;
-      font-weight: 650;
+      font-weight: 700;
       margin-bottom: 3px;
       line-height: 1.4;
+      color: #111;
     }
 
     .meta {
@@ -307,7 +407,23 @@
       color: #333;
     }
 
-    /* Internship cards: wide logo on top */
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .tech-tag {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: #3d4d5c;
+      background: #f3f6f8;
+      border: 1px solid #e3e8ec;
+    }
+
+    /* Internship */
 
     .experience-wide {
       display: block;
@@ -330,7 +446,15 @@
       background: #fff;
     }
 
-    /* Project cards */
+    .experience-card-dicp {
+      border-left: 4px solid #d7e5f5;
+    }
+
+    .experience-card-xiaomi {
+      border-left: 4px solid #f2d8c8;
+    }
+
+    /* Projects */
 
     .project-card {
       display: grid;
@@ -351,14 +475,27 @@
 
     .project-title {
       font-size: 17.5px;
-      font-weight: 650;
+      font-weight: 700;
       line-height: 1.35;
       margin-bottom: 5px;
+      color: #111;
     }
 
     .award-highlight {
       color: var(--red);
-      font-weight: 650;
+      font-weight: 700;
+    }
+
+    .project-card-sign {
+      border-left: 4px solid #d7e5f5;
+    }
+
+    .project-card-medicine {
+      border-left: 4px solid #d8ead9;
+    }
+
+    .project-card-mcm {
+      border-left: 4px solid #ead9f6;
     }
 
     /* Education */
@@ -368,6 +505,7 @@
       grid-template-columns: 78px 1fr;
       gap: 18px;
       align-items: center;
+      border-left: 4px solid #eee;
     }
 
     .org-logo {
@@ -396,6 +534,7 @@
     .skill-box h3 {
       margin: 0 0 8px;
       font-size: 16.5px;
+      color: #111;
     }
 
     .skill-box ul {
@@ -536,13 +675,15 @@
           I am currently a master's student in <strong>Control Science and Engineering</strong>
           at <strong>Dalian University of Technology</strong>. Before that, I received my
           B.Eng. degree in Automation from <strong>Henan Polytechnic University</strong>,
-          where I ranked first in my major for four consecutive years.
+          where I ranked <span class="emph-red">first in my major for four consecutive years</span>.
         </p>
 
         <p>
           I am interested in building intelligent systems that combine machine learning
-          algorithms with real-world embedded platforms. My research focuses on affective
-          computing, multimodal representation learning, cross-subject domain adaptation,
+          algorithms with real-world embedded platforms. My research focuses on
+          <span class="emph-blue">affective computing</span>,
+          <span class="emph-blue">multimodal representation learning</span>,
+          <span class="emph-blue">cross-subject domain adaptation</span>,
           embedded AI, edge computing, and intelligent healthcare.
         </p>
 
@@ -560,11 +701,11 @@
         <h2>News</h2>
         <div class="card">
           <ul class="news-list">
-            <li><span class="year">2026.09</span>: I will join the Xiaomi OpenVela team as an embedded software development intern.</li>
-            <li><span class="year">2026.05</span>: I started an embedded software development internship at Dalian Institute of Chemical Physics, Chinese Academy of Sciences.</li>
+            <li><span class="year">2026.09</span>: I will join the <span class="emph-red">Xiaomi OpenVela team</span> as an embedded software development intern.</li>
+            <li><span class="year">2026.05</span>: I started an embedded software development internship at <span class="emph-blue">Dalian Institute of Chemical Physics, Chinese Academy of Sciences</span>.</li>
             <li><span class="year">2026</span>: One first-author manuscript was submitted to <em>Biomedical Signal Processing and Control</em>.</li>
             <li><span class="year">2026</span>: One co-first-author manuscript was submitted to <em>Sensors and Actuators B: Chemical</em>.</li>
-            <li><span class="year">2026</span>: Our work received the Best Paper Award at ETAI 2026.</li>
+            <li><span class="year">2026</span>: Our work received the <span class="emph-red">Best Paper Award</span> at ETAI 2026.</li>
           </ul>
         </div>
       </section>
@@ -580,11 +721,15 @@
             <span class="me">Yongle Duanmu</span>, et al.
           </div>
           <div class="venue">
-            2026 5th International Conference on Electronics Technology and Artificial Intelligence (ETAI), 2026.
+            <span class="venue-name">ETAI 2026</span>, 2026 5th International Conference on Electronics Technology and Artificial Intelligence.
           </div>
           <div class="badges">
             <span class="badge badge-red">Best Paper Award</span>
             <span class="badge badge-blue">First Author</span>
+            <span class="badge badge-purple">Cross-modal Fusion</span>
+          </div>
+          <div class="mini-links">
+            <span class="mini-link disabled">Paper Coming Soon</span>
           </div>
         </div>
 
@@ -596,11 +741,16 @@
             <span class="me">Yongle Duanmu</span>, et al.
           </div>
           <div class="venue">
-            Manuscript submitted to <em>Biomedical Signal Processing and Control</em>.
+            Manuscript submitted to <span class="venue-name">Biomedical Signal Processing and Control</span>.
           </div>
           <div class="badges">
             <span class="badge badge-blue">First Author</span>
-            <span class="badge">Under Review</span>
+            <span class="badge badge-orange">Under Review</span>
+            <span class="badge badge-purple">ECG Emotion Recognition</span>
+          </div>
+          <div class="mini-links">
+            <span class="mini-link disabled">Manuscript</span>
+            <span class="mini-link disabled">Code Coming Soon</span>
           </div>
         </div>
 
@@ -612,12 +762,16 @@
             Haotian Zhang, <span class="me">Yongle Duanmu</span>, et al.
           </div>
           <div class="venue">
-            Manuscript submitted to <em>Sensors and Actuators B: Chemical</em>.
+            Manuscript submitted to <span class="venue-name">Sensors and Actuators B: Chemical</span>.
           </div>
           <div class="badges">
             <span class="badge badge-blue">Co-first Author</span>
-            <span class="badge">Under Review</span>
-            <span class="badge">Internship Output</span>
+            <span class="badge badge-orange">Under Review</span>
+            <span class="badge badge-green">Internship Output</span>
+            <span class="badge badge-purple">Battery Safety</span>
+          </div>
+          <div class="mini-links">
+            <span class="mini-link disabled">Manuscript</span>
           </div>
         </div>
       </section>
@@ -625,7 +779,7 @@
       <section id="experience">
         <h2>Internship & Research Experience</h2>
 
-        <div class="card experience-wide">
+        <div class="card experience-wide experience-card-dicp">
           <div class="experience-logo-row">
             <img class="experience-logo-wide" src="images/dicp.png" alt="Dalian Institute of Chemical Physics, Chinese Academy of Sciences" />
           </div>
@@ -646,10 +800,19 @@
               USART, SD card storage, and multiple sensors. I also designed a tab-signal multiplexing
               scheme to encode and transmit sensing data through battery tabs under space-constrained conditions.
             </p>
+
+            <div class="tech-tags">
+              <span class="tech-tag">STM32F4</span>
+              <span class="tech-tag">FreeRTOS</span>
+              <span class="tech-tag">SPI / IIC / CAN / USART</span>
+              <span class="tech-tag">PCB Design</span>
+              <span class="tech-tag">Sensor Integration</span>
+              <span class="tech-tag">Battery Thermal Runaway</span>
+            </div>
           </div>
         </div>
 
-        <div class="card experience-wide">
+        <div class="card experience-wide experience-card-xiaomi">
           <div class="experience-logo-row">
             <img class="experience-logo-wide" src="images/xiaomi.png" alt="Xiaomi" />
           </div>
@@ -664,6 +827,12 @@
             <p class="compact-text">
               Upcoming internship. Details will be updated later.
             </p>
+
+            <div class="tech-tags">
+              <span class="tech-tag">Embedded Software</span>
+              <span class="tech-tag">OpenVela</span>
+              <span class="tech-tag">Operating System</span>
+            </div>
           </div>
         </div>
       </section>
@@ -671,7 +840,7 @@
       <section id="projects">
         <h2>Selected Projects</h2>
 
-        <div class="card project-card">
+        <div class="card project-card project-card-sign">
           <img class="project-img" src="images/pic1.jpg" alt="Bidirectional Intelligent Bionic Sign Language Translator" />
 
           <div>
@@ -685,10 +854,17 @@
               gesture recognition, and intelligent interaction. I served as the team leader and was
               responsible for system design, algorithm implementation, embedded development, and project integration.
             </p>
+
+            <div class="tech-tags">
+              <span class="tech-tag">Multimodal Interaction</span>
+              <span class="tech-tag">Embedded AI</span>
+              <span class="tech-tag">Gesture Recognition</span>
+              <span class="tech-tag">Human-Computer Interaction</span>
+            </div>
           </div>
         </div>
 
-        <div class="card project-card">
+        <div class="card project-card project-card-medicine">
           <img class="project-img" src="images/pic2.png" alt="Intelligent Medication Intervention System" />
 
           <div>
@@ -703,10 +879,19 @@
               PC-based local medical large language model, voice interaction, health monitoring,
               medication behavior detection, and 3D-printed mechanical structure.
             </p>
+
+            <div class="tech-tags">
+              <span class="tech-tag">K230</span>
+              <span class="tech-tag">i.MX6ULL</span>
+              <span class="tech-tag">Edge Computing</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">Local LLM</span>
+              <span class="tech-tag">Intelligent Healthcare</span>
+            </div>
           </div>
         </div>
 
-        <div class="card project-card">
+        <div class="card project-card project-card-mcm">
           <img class="project-img" src="images/meisai.jpg" alt="MCM Overview" />
 
           <div>
@@ -720,6 +905,13 @@
               strategies under extreme weather conditions. I served as the team leader and contributed to
               model construction, data analysis, and paper writing.
             </p>
+
+            <div class="tech-tags">
+              <span class="tech-tag">Mathematical Modeling</span>
+              <span class="tech-tag">Optimization</span>
+              <span class="tech-tag">Risk Analysis</span>
+              <span class="tech-tag">Extreme Weather</span>
+            </div>
           </div>
         </div>
       </section>
@@ -748,7 +940,7 @@
               Sep. 2021 - Jun. 2025
             </div>
             <p class="compact-text">
-              Ranked first in the major for four consecutive years.
+              Ranked <span class="emph-red">first in the major for four consecutive years</span>.
             </p>
           </div>
         </div>
@@ -760,15 +952,15 @@
         <div class="card">
           <ul class="news-list">
             <li>
-              <strong>National First Prize</strong>, National Undergraduate Embedded Chip and System Design Competition, 2024.
+              <strong class="emph-red">National First Prize</strong>, National Undergraduate Embedded Chip and System Design Competition, 2024.
               Team Leader. Project: Bidirectional Intelligent Bionic Sign Language Translator.
             </li>
             <li>
-              <strong>National First Prize</strong>, Chinese Collegiate Computing Competition, 2024.
+              <strong class="emph-red">National First Prize</strong>, Chinese Collegiate Computing Competition, 2024.
               Team Leader. Project: Intelligent Medication Intervention System Based on Multimodal AI and Edge Computing.
             </li>
             <li>
-              <strong>Meritorious Winner</strong>, Mathematical Contest in Modeling, 2024.
+              <strong class="emph-red">Meritorious Winner</strong>, Mathematical Contest in Modeling, 2024.
               Team Leader. Project: Dynamic Optimization of Insurance Enrollment under Extreme Weather.
             </li>
           </ul>
